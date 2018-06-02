@@ -1,3 +1,17 @@
+# Introducción
+
+## ¿Qué es OpenShift?
+
+OpenShift es una PaaS, haciendo uso de **kubernetes**  permite desplegar, fácilmente, aplicaciones en contenedores
+
+## Descripción del proyecto
+
+En éste proyecto se desplegará un clúster de **OpenShift** para poder lanzar aplicaciones y servicios sobre él.
+
+## Objetivos a alcanzar
+
+Tener un clúster de **Openshift** totalmente funcional desplegado automáticamente sobre **OpenStack**, cuyos volúmenes los proporcionará el componente **Cinder** de **OpenStack** y los usuarios estarán sincronizados en un servidor **LDAP**.
+
 # Proceso de instalación
 Para realizar la instalación de OpenShift sobre OpenStack trabajaremos sobre un entorno virtual de python con las siguientes dependencias instaladas:
 
@@ -102,7 +116,8 @@ cp /home/openshift/gonzalonazareno.crt /etc/pki/ca-trust/source/anchors/
 update-ca-trust extract
 hostnamectl set-hostname `hostname --short`.opens.pro
 ~~~
-Parámetros destacados de los inventarios
+
+# Parámetros destacados de los inventarios
 Valores a destacar en el inventario **OSEv3.yml**
 
 `openshift_master_default_subdomain: "apps.opens.pro"` \
