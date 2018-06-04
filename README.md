@@ -31,60 +31,8 @@ git checkout release-3.9
 mkdir -p inventory/group_vars
 ~~~
 Dentro de **group_vars** crearemos dos yaml que definirán nuestro entorno y la configuración de nuestro clúster. 
-Del fichero **all.yml** tomará los valores para la pila de **OpenStack Heat**. 
-~~~
----
-openshift_openstack_clusterid: "opens"
-openshift_openstack_public_dns_domain: "pro"
-openshift_openstack_dns_nameservers: ["172.22.200.136"]
-openshift_openstack_keypair_name: "openshift"
-openshift_openstack_external_network_name: "ext-net"
-openshift_openstack_default_image_name: "CentOS 7"
-openshift_openstack_num_masters: 1
-openshift_openstack_num_infra: 1
-openshift_openstack_num_cns: 0
-openshift_openstack_num_nodes: 2
-openshift_openstack_infra_flavor: "m1.openshift"
-openshift_openstack_node_flavor: "win.medium"
-openshift_openstack_default_flavor: "m1.openshift"
-openshift_openstack_docker_volume_size: "10"
-openshift_openstack_subnet_cidr: "10.0.1.0/24"
-openshift_openstack_pool_start: "10.0.1.2"
-openshift_openstack_pool_end: "10.0.1.240"
-ansible_user: openshift
-openshift_openstack_heat_template_version: newton
-openshift_openstack_disable_root: true
-openshift_openstack_user: openshift
-~~~
-Y el fichero **OSEv3.yml** del que se tomará la configuración del clúster y donde definiremos la configuración de acceso a nuestro **OpenStack**.
-~~~
----
-openshift_deployment_type: origin
-openshift_release: v3.9
-openshift_service_catalog_image_version: v3.9
-openshift_master_default_subdomain: "apps.opens.pro"
-openshift_master_cluster_public_hostname: "openshift.opens.pro"
-osm_default_node_selector: 'region=primary'
-openshift_hosted_router_wait: True
-openshift_hosted_registry_wait: True
-openshift_cloudprovider_kind: openstack
-openshift_cloudprovider_openstack_auth_url: "https://jupiter.gonzalonazareno.org:5000/v3"
-openshift_cloudprovider_openstack_username: "david.tinoco"
-openshift_cloudprovider_openstack_password: "asir1617"
-openshift_cloudprovider_openstack_tenant_name: "Proyecto de david.tinoco"
-openshift_cloudprovider_openstack_region: "RegionOne"
-openshift_cloudprovider_openstack_domain_name: "iesgn"
-openshift_cloudprovider_openstack_blockstorage_version: v2
-debug_level: 1
-openshift_disable_check: disk_availability,memory_availability,docker_storage
-openshift_hosted_registry_storage_kind: openstack
-openshift_hosted_registry_storage_access_modes: ['ReadWriteOnce']
-openshift_hosted_registry_storage_openstack_filesystem: xfs
-openshift_hosted_registry_storage_volume_size: 5Gi
-openshift_hosted_registry_storage_openstack_volumeID: 5c6aad3a-8c3b-4bfb-b229-056d86c09366
-openshift_hostname_check: false
-ansible_become: true
-~~~
+Del fichero [**all.yml**](https://github.com/DavidTinoco/OpenshiftOverOpenstack/blob/master/Provision/all.yml) tomará los valores para la pila de **OpenStack Heat** Y del fichero [**OSEv3.yml**](https://github.com/DavidTinoco/OpenshiftOverOpenstack/blob/master/Provision/OSEv3.yml) se tomará la configuración del clúster y donde definiremos la configuración de acceso a nuestro **OpenStack**.
+
 Más adelante se detallarán algunos de estos parámetro un poco más en profundidad.
 
 Ahora, desde nuestro proyecto de OpenStack crearemos un volumen igual al tamaño que hemos definido en el inventario OSEv3.yml y definimos el ID del volumen en la variable `openshift_hosted_registry_storage_openstack_volumeID`.
@@ -98,12 +46,7 @@ ansible-playbook -i ~/openshift-ansible/inventory \
 -i ~/openshift-ansible/playbooks/openstack/inventory.py \
 ~/openshift-ansible/playbooks/openstack/openshift-cluster/provision.yml
 ~~~
-Una vez estén las instancias creadas añadiremos a nuestro servidor DNS los registros de cada máquina, además de:
-~~~
-openshift   		IN	A	IPFlotanteMaster
-*.apps.opens.pro.	IN	A	IPFlotanteIndfra-Node
-~~~
-Y recargamos la zona.
+Una vez estén las instancias creadas añadiremos a nuestro servidor DNS los [registros](https://github.com/DavidTinoco/OpenshiftOverOpenstack/blob/master/DNS/os.pro) de cada máquina, y recargamos la zona.
 
 Necesitaremos añadir a cada instancia el certificado de nuestro Horizon y modificar su hostname eliminando el “.novalocal” que añade OpenStack al crear la instancia.
 

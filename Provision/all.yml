@@ -1,0 +1,22 @@
+---
+openshift_openstack_clusterid: "opens"
+openshift_openstack_public_dns_domain: "pro"
+openshift_openstack_dns_nameservers: ["172.22.200.136"]
+openshift_openstack_keypair_name: "openshift"
+openshift_openstack_external_network_name: "ext-net"
+openshift_openstack_default_image_name: "CentOS 7"
+openshift_openstack_num_masters: 1
+openshift_openstack_num_infra: 1
+openshift_openstack_num_cns: 0
+openshift_openstack_num_nodes: 2
+openshift_openstack_infra_flavor: "m1.openshift"
+openshift_openstack_node_flavor: "win.medium"
+openshift_openstack_default_flavor: "m1.openshift"
+openshift_openstack_docker_volume_size: "10"
+openshift_openstack_subnet_cidr: "10.0.1.0/24"
+openshift_openstack_pool_start: "10.0.1.2"
+openshift_openstack_pool_end: "10.0.1.240"
+ansible_user: openshift
+openshift_openstack_heat_template_version: newton
+openshift_openstack_disable_root: true
+openshift_openstack_user: openshift
