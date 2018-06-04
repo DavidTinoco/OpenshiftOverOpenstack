@@ -1,0 +1,21 @@
+identityProviders:
+  - challenge: true
+    login: true
+    mappingMethod: claim
+    name: LDAP
+    provider:
+      apiVersion: v1
+      kind: LDAPPasswordIdentityProvider
+      attributes:
+        id:
+        - dn
+        email:
+        - mail
+        name:
+        - cn
+        preferredUsername:
+        - uid
+      bindDN: "cn=admin,dc=opens,dc=pro"
+      bindPassword: "root"
+      insecure: true
+      url: "ldap://ldap.opens.pro/ou=People,dc=opens,dc=pro?uid"

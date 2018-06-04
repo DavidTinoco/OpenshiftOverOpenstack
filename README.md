@@ -2,7 +2,7 @@
 
 ## ¿Qué es OpenShift?
 
-OpenShift es una PaaS, haciendo uso de **kubernetes**  permite desplegar, fácilmente, aplicaciones en contenedores
+OpenShift es una PaaS que, haciendo uso de **kubernetes**,  permite desplegar fácilmente aplicaciones en contenedores
 
 ## Descripción del proyecto
 

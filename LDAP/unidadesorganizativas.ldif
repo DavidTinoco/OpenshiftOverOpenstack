@@ -1,0 +1,9 @@
+dn: ou=People,dc=opens,dc=pro
+ou: People
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=Group,dc=opens,dc=pro
+ou: Group
+objectClass: top
+objectClass: organizationalUnit

@@ -1,0 +1,15 @@
+dn: uid=david.tinoco,ou=People,dc=opens,dc=pro
+objectClass: top
+objectClass: posixAccount
+objectClass: inetOrgPerson
+objectClass: person
+cn: david.tinoco
+uid: david.tinoco
+uidNumber: 2001
+gidNumber: 2000
+homeDirectory: /home/david.tinoco
+loginShell: /bin/bash
+userPassword: {SSHA}adaFrm0atOuVPOUqgD2gYCK6cAsJ
+sn: DavidTinoco
+mail: daviid.tc@gmail.com
+givenName: DavidTinoco
