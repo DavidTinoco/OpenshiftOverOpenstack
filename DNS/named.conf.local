@@ -1,0 +1,6 @@
+zone "opens.pro" {
+	type master;
+	file "/etc/bind/zones/os.pro";
+	forwarders {
+	};
+};
