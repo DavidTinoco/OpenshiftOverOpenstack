@@ -8,12 +8,12 @@ osm_default_node_selector: 'region=primary'
 openshift_hosted_router_wait: True
 openshift_hosted_registry_wait: True
 openshift_cloudprovider_kind: openstack
-openshift_cloudprovider_openstack_auth_url: "https://jupiter.gonzalonazareno.org:5000/v3"
-openshift_cloudprovider_openstack_username: "david.tinoco"
-openshift_cloudprovider_openstack_password: "asir1617"
-openshift_cloudprovider_openstack_tenant_name: "Proyecto de david.tinoco"
-openshift_cloudprovider_openstack_region: "RegionOne"
-openshift_cloudprovider_openstack_domain_name: "iesgn"
+openshift_cloudprovider_openstack_auth_url: "authURL"
+openshift_cloudprovider_openstack_username: "username"
+openshift_cloudprovider_openstack_password: "password"
+openshift_cloudprovider_openstack_tenant_name: "Proyect name"
+openshift_cloudprovider_openstack_region: "RegionName"
+openshift_cloudprovider_openstack_domain_name: "domain name"
 openshift_cloudprovider_openstack_blockstorage_version: v2
 debug_level: 1
 openshift_disable_check: disk_availability,memory_availability,docker_storage
@@ -21,6 +21,6 @@ openshift_hosted_registry_storage_kind: openstack
 openshift_hosted_registry_storage_access_modes: ['ReadWriteOnce']
 openshift_hosted_registry_storage_openstack_filesystem: xfs
 openshift_hosted_registry_storage_volume_size: 5Gi
-openshift_hosted_registry_storage_openstack_volumeID: 5c6aad3a-8c3b-4bfb-b229-056d86c09366
+openshift_hosted_registry_storage_openstack_volumeID: 5c6aag4a-8h6b-4btg-b119-056d86c09366
 openshift_hostname_check: false
 ansible_become: true
